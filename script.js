@@ -5,12 +5,15 @@ const textDisplay = document.querySelector('#carta-gerada');
 function generateLetter() {
   const splitedWords = textInput.value.split(' ');
   let textOut = '';
-  if (splitedWords.length !== ['']) {
-    for(let index = 0; index < splitedWords.length; index += 1) {
+  for (let index = 0; index < splitedWords.length; index += 1) {
+    if (splitedWords[index] !== '') {
       textOut += `<span>${splitedWords[index]}</span>`;
     }
-    console.log(textOut);
   }
+  if (textOut === '') {
+    textOut = 'Por favor, digite o conteúdo da carta.';
+  }
+  console.log(textOut);
   return textOut;
 }
 
